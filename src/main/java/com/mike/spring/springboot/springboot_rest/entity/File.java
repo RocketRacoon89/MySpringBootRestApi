@@ -1,11 +1,14 @@
 package com.mike.spring.springboot.springboot_rest.entity;
 
 import jakarta.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "files")
 public class File {
+
+    public File() {
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
@@ -16,8 +19,6 @@ public class File {
 
     @Column(name="status")
     private String status;
-
-    protected File() {}
 
     public File(String location, String status) {
         this.location = location;

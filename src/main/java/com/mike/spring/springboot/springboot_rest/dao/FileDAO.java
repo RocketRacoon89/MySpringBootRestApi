@@ -6,8 +6,8 @@ import java.util.List;
 
 public interface FileDAO {
 
-//    public List<File> getAllFiles();
-//
+    public List<File> getAllFiles();
+
 //    public void saveFile(File file);
 //
 //    public File getFile(int id);

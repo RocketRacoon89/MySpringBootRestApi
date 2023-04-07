@@ -1,7 +1,7 @@
 package com.mike.spring.springboot.springboot_rest.controller;
 
-import com.mike.spring.springboot.springboot_rest.entity.User;
-import com.mike.spring.springboot.springboot_rest.service.UserService;
+import com.mike.spring.springboot.springboot_rest.entity.File;
+import com.mike.spring.springboot.springboot_rest.service.FileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,14 +11,14 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
-public class UserController {
+public class FileController {
 
     @Autowired
-    private UserService userService;
+    private FileService fileService;
 
-    @GetMapping("/user")
-    public List<User> showAllUsers() {
-        List<User> allUsers = userService.getAllUsers();
-        return allUsers;
+    @GetMapping("/file")
+    public List<File> shoAllFiles() {
+        List<File> allFiles = fileService.getAllFiles();
+        return allFiles;
     }
 }

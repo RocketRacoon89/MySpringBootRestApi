@@ -1,12 +1,12 @@
 package com.mike.spring.springboot.springboot_rest.service;
 
-import com.mike.spring.springboot.springboot_rest.entity.Users;
+import com.mike.spring.springboot.springboot_rest.entity.User;
 
 import java.util.List;
 
 public interface UserService {
 
-    public List<Users> getAllUsers();
+    public List<User> getAllUsers();
 
 //    public void saveUser(User user);
 //

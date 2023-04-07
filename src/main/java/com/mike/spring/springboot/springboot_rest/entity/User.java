@@ -1,15 +1,13 @@
 package com.mike.spring.springboot.springboot_rest.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
 @Table(name = "Users")
-public class Users {
-
-    public Users() {
-    }
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,7 +18,9 @@ public class Users {
     private String name;
 
     @OneToMany
+    @JoinColumn(name = "user_id")
     private List<Event> events;
+
 
     @Column(name = "status")
     private String status;

@@ -1,7 +1,7 @@
 package com.mike.spring.springboot.springboot_rest.service;
 
 import com.mike.spring.springboot.springboot_rest.dao.UserDAOImpl;
-import com.mike.spring.springboot.springboot_rest.entity.Users;
+import com.mike.spring.springboot.springboot_rest.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,7 +16,7 @@ public class UserServiceImpl implements UserService{
 
     @Override
     @Transactional
-    public List<Users> getAllUsers() {
+    public List<User> getAllUsers() {
         return userDAO.getAllUsers();
     }
 
