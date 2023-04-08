@@ -1,6 +1,6 @@
 package com.mike.spring.springboot.springboot_rest.dao;
 
-import com.mike.spring.springboot.springboot_rest.entity.User;
+import com.mike.spring.springboot.springboot_rest.entity.Event;
 import jakarta.persistence.EntityManager;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
@@ -9,42 +9,43 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class UserDAOImpl implements UserDAO{
+public class EventDAOImpl implements EventDAO{
 
     @Autowired
     private EntityManager entityManager;
 
     @Override
-    public List<User> getAllUsers() {
-
+    public List<Event> getAllEvents() {
         Session session = entityManager.unwrap(Session.class);
 
-        Query<User> query = session.createQuery("from User", User.class);
+        Query<Event> query = session.createQuery("from Event", Event.class);
 
-        List<User> allUsers = query.getResultList();
+        List<Event> allEvents = query.getResultList();
 
-        return allUsers;
+        return allEvents;
     }
 
     @Override
-    public void saveUser(User user) {
+    public Event getEvent(int id) {
         Session session = entityManager.unwrap(Session.class);
-
-        session.saveOrUpdate(user);
+        Event event = session.get(Event.class, id);
+        return event;
     }
 
     @Override
-    public User getUser(int id) {
+    public void saveEvent(Event event) {
         Session session = entityManager.unwrap(Session.class);
-        User user = session.get(User.class, id);
-        return user;
+
+        session.saveOrUpdate(event);
     }
 
     @Override
-    public void deleteUser(int id) {
+    public void deleteEvent(int id) {
         Session session = entityManager.unwrap(Session.class);
-        User user = session.get(User.class, id);
-        session.delete(user);
+
+        Event event = session.get(Event.class, id);
+
+        session.delete(event);
 
     }
 }

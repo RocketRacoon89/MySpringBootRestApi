@@ -8,9 +8,9 @@ public interface FileDAO {
 
     public List<File> getAllFiles();
 
-//    public void saveFile(File file);
-//
-//    public File getFile(int id);
-//
-//    public void deleteFile(int id);
+    public void saveFile(File file);
+
+    public File getFile(int id);
+
+    public void deleteFile(int id);
 }

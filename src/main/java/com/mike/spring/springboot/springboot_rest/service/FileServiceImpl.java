@@ -19,4 +19,22 @@ public class FileServiceImpl implements FileService{
     public List<File> getAllFiles() {
         return fileDAO.getAllFiles();
     }
+
+    @Override
+    @Transactional
+    public void saveFile(File file) {
+        fileDAO.saveFile(file);
+    }
+
+    @Override
+    @Transactional
+    public File getFile(int id) {
+        return fileDAO.getFile(id);
+    }
+
+    @Override
+    @Transactional
+    public void deleteFile(int id) {
+        fileDAO.deleteFile(id);
+    }
 }

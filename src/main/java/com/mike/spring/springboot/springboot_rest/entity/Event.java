@@ -13,9 +13,13 @@ public class Event {
     @Column(name = "id")
     private int id;
 
-    @JsonBackReference
-    @ManyToOne
-    private User user;
+//    @JsonBackReference
+//    @ManyToOne
+//    private User user;
+
+    @Column(name = "user_id")
+    private int user_id;
+
 
     @ManyToOne
     @JoinColumn(name = "file_id")
@@ -24,13 +28,20 @@ public class Event {
     @Column(name = "status")
     private String status;
 
-
-    public User getUser() {
-        return user;
+    public int getId() {
+        return id;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
     }
 
     public File getFile() {
@@ -53,7 +64,7 @@ public class Event {
     public String toString() {
         return "Event{" +
                 "id=" + id +
-                ", user=" + user +
+                ", user_id=" + user_id +
                 ", file=" + file +
                 ", status='" + status + '\'' +
                 '}';

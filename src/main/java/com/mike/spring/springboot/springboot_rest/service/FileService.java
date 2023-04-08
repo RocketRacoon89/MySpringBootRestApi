@@ -7,4 +7,10 @@ import java.util.List;
 public interface FileService {
 
     public List<File> getAllFiles();
+
+    public void saveFile(File file);
+
+    public File getFile(int id);
+
+    public void deleteFile(int id);
 }

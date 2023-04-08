@@ -1,5 +1,6 @@
 package com.mike.spring.springboot.springboot_rest.dao;
 
+import com.mike.spring.springboot.springboot_rest.entity.Event;
 import com.mike.spring.springboot.springboot_rest.entity.File;
 import jakarta.persistence.EntityManager;
 
@@ -30,18 +31,32 @@ public class FileDAOImpl implements FileDAO{
         return allFiles;
     }
 
-//    @Override
-//    public void saveFile(File file) {
-//
-//    }
-//
-//    @Override
-//    public File getFile(int id) {
-//        return null;
-//    }
-//
-//    @Override
-//    public void deleteFile(int id) {
-//
-//    }
+    @Override
+    public void saveFile(File file) {
+
+        Session session = entityManager.unwrap(Session.class);
+
+        session.saveOrUpdate(file);
+    }
+
+    @Override
+    public File getFile(int id) {
+
+        Session session = entityManager.unwrap(Session.class);
+
+        File file = session.get(File.class, id);
+
+        return file;
+    }
+
+    @Override
+    public void deleteFile(int id) {
+
+        Session session = entityManager.unwrap(Session.class);
+
+        File file = session.get(File.class, id);
+
+        session.delete(file);
+
+    }
 }
