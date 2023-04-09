@@ -21,7 +21,7 @@ public class Event {
     private int user_id;
 
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "file_id")
     private File file;
 

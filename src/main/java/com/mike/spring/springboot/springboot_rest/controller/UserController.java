@@ -1,6 +1,5 @@
 package com.mike.spring.springboot.springboot_rest.controller;
 
-import com.mike.spring.springboot.springboot_rest.entity.Event;
 import com.mike.spring.springboot.springboot_rest.entity.User;
 import com.mike.spring.springboot.springboot_rest.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
