@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class FileDAOImpl implements FileDAO{
+public class FileDAOEx1 implements FileDAO{
 
     @Autowired
     private EntityManager entityManager;
@@ -22,7 +22,7 @@ public class FileDAOImpl implements FileDAO{
 
         Session session = entityManager.unwrap(Session.class);
 
-        Query<File> query = session.createQuery("from File", File.class);
+        Query<File> query = session.createQuery("from File where status = \"ACTIVE\"", File.class);
 
         List<File> allFiles = query.getResultList();
 
@@ -52,9 +52,10 @@ public class FileDAOImpl implements FileDAO{
 
         Session session = entityManager.unwrap(Session.class);
 
-        File file = session.get(File.class, id);
+//        session.createQuery("update File set status = \'DELETED\' where id = :id", File.class).setParameter("id", id).executeUpdate();
 
-        session.delete(file);
+        session.createQuery("update File set status = \'DELETED\' where id = :id").setParameter("id", id).executeUpdate();
+
 
     }
 }

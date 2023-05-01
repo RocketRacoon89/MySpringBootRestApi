@@ -17,13 +17,21 @@ public class User {
     @Column(name = "name")
     private String name;
 
+    @Column(name = "password")
+    private String password;
+
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
     private List<Event> events;
 
+    @ManyToMany
+    @JoinTable(name = "user_roles",
+    joinColumns = {@JoinColumn(name="user_id", referencedColumnName = "id")},
+    inverseJoinColumns = {@JoinColumn(name="role_id", referencedColumnName = "id")})
+    private List<Role> roles;
 
     @Column(name = "status")
-    private String status;
+    private Status status;
 
     public int getId() {
         return id;
@@ -49,12 +57,28 @@ public class User {
         this.events = events;
     }
 
-    public String getStatus() {
+    public Status getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Status status) {
         this.status = status;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
     }
 
     @Override

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class UserDAOImpl implements UserDAO{
+public class UserDAOEx1 implements UserDAO{
 
     @Autowired
     private EntityManager entityManager;
@@ -41,6 +41,12 @@ public class UserDAOImpl implements UserDAO{
     }
 
     @Override
+    public void deleteUser(int id) {
+        Session session = entityManager.unwrap(Session.class);
+        session.createQuery("update User set status = \"DELETED\" where id = :id", User.class).setParameter("id", id).executeUpdate();
+    }
+
+    @Override
     public User getUserByName(String name) {
         Session session = entityManager.unwrap(Session.class);
 
@@ -50,13 +56,5 @@ public class UserDAOImpl implements UserDAO{
         User user = query.getResultList().get(0);
 
         return user;
-    }
-
-    @Override
-    public void deleteUser(int id) {
-        Session session = entityManager.unwrap(Session.class);
-        User user = session.get(User.class, id);
-        session.delete(user);
-
     }
 }

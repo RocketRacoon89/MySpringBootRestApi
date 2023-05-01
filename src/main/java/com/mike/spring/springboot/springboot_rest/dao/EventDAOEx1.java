@@ -1,60 +1,47 @@
 package com.mike.spring.springboot.springboot_rest.dao;
 
-import com.mike.spring.springboot.springboot_rest.entity.File;
+import com.mike.spring.springboot.springboot_rest.entity.Event;
 import jakarta.persistence.EntityManager;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
-
 import java.util.List;
 
 @Repository
-public class FileDAOImpl implements FileDAO{
+public class EventDAOEx1 implements EventDAO{
 
     @Autowired
     private EntityManager entityManager;
 
-
     @Override
-    public List<File> getAllFiles() {
-
+    public List<Event> getAllEvents() {
         Session session = entityManager.unwrap(Session.class);
 
-        Query<File> query = session.createQuery("from File", File.class);
+        Query<Event> query = session.createQuery("from Event", Event.class);
 
-        List<File> allFiles = query.getResultList();
+        List<Event> allEvents = query.getResultList();
 
-        return allFiles;
+        return allEvents;
     }
 
     @Override
-    public void saveFile(File file) {
-
+    public Event getEvent(int id) {
         Session session = entityManager.unwrap(Session.class);
-
-        session.saveOrUpdate(file);
+        Event event = session.get(Event.class, id);
+        return event;
     }
 
     @Override
-    public File getFile(int id) {
-
+    public void saveEvent(Event event) {
         Session session = entityManager.unwrap(Session.class);
 
-        File file = session.get(File.class, id);
-
-        return file;
+        session.saveOrUpdate(event);
     }
 
     @Override
-    public void deleteFile(int id) {
-
+    public void deleteEvent(int id) {
         Session session = entityManager.unwrap(Session.class);
-
-        File file = session.get(File.class, id);
-
-        session.delete(file);
-
+        session.createQuery("update Event set status = \"DELETED\" where id = :id", Event.class).setParameter("id", id).executeUpdate();
     }
 }
