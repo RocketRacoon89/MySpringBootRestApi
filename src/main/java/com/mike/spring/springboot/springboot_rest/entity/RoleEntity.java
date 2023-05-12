@@ -5,7 +5,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "roles")
-public class Role {
+public class RoleEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,7 +16,7 @@ public class Role {
     private String name;
 
     @jakarta.persistence.ManyToMany(mappedBy = "roles", fetch = jakarta.persistence.FetchType.LAZY)
-    private List<User> users;
+    private List<UserEntity> users;
 
     public int getId() {
         return id;

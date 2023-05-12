@@ -1,18 +1,18 @@
 package com.mike.spring.springboot.springboot_rest.dao;
 
-import com.mike.spring.springboot.springboot_rest.entity.User;
+import com.mike.spring.springboot.springboot_rest.entity.UserEntity;
 
 import java.util.List;
 
 public interface UserDAO {
 
-    public List<User> getAllUsers();
+    public List<UserEntity> getAllUsers();
 
-    public void saveUser(User user);
+    public void saveUser(UserEntity user);
 
-    public User getUser(int id);
+    public UserEntity getUser(int id);
 
-    public User getUserByName(String name);
+    public UserEntity getUserByName(String name);
 
     public void deleteUser(int id);
 }

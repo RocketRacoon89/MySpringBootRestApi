@@ -1,6 +1,6 @@
 package com.mike.spring.springboot.springboot_rest.security.jwt;
 
-import com.mike.spring.springboot.springboot_rest.entity.Role;
+import com.mike.spring.springboot.springboot_rest.entity.RoleEntity;
 import io.jsonwebtoken.*;
 import jakarta.annotation.PostConstruct;
 import jakarta.servlet.http.HttpServletRequest;
@@ -42,7 +42,7 @@ public class JwtTokenProvider {
         secret = Base64.getEncoder().encodeToString(secret.getBytes());
     }
 
-    public String createToken(String username, List<Role> roleList) {
+    public String createToken(String username, List<RoleEntity> roleList) {
         Claims claims = Jwts.claims().setSubject(username);
         claims.put("roles", getRoleNames(roleList));
 
@@ -88,7 +88,7 @@ public class JwtTokenProvider {
         }
     }
 
-    private List<String> getRoleNames(List<Role> userRoles) {
+    private List<String> getRoleNames(List<RoleEntity> userRoles) {
         List<String> result = new ArrayList<>();
 
         userRoles.forEach(role -> {

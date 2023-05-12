@@ -1,18 +1,18 @@
 package com.mike.spring.springboot.springboot_rest.service;
 
-import com.mike.spring.springboot.springboot_rest.entity.User;
+import com.mike.spring.springboot.springboot_rest.entity.UserEntity;
 
 import java.util.List;
 
 public interface UserService {
 
-    public List<User> getAllUsers();
+    List<UserEntity> getAll();
 
-    public void saveUser(User user);
+    UserEntity register(UserEntity user);
 
-    public User getUserById(int id);
+    UserEntity findById(int id);
 
-    public User getUserByName(String name);
+    UserEntity getByEmail(String email);
 
-    public void deleteUser(int id);
+    void delete(int id);
 }

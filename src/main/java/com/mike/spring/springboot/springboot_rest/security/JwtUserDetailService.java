@@ -1,6 +1,6 @@
 package com.mike.spring.springboot.springboot_rest.security;
 
-import com.mike.spring.springboot.springboot_rest.entity.User;
+import com.mike.spring.springboot.springboot_rest.entity.UserEntity;
 import com.mike.spring.springboot.springboot_rest.security.jwt.JwtUser;
 import com.mike.spring.springboot.springboot_rest.security.jwt.JwtUserFactory;
 import com.mike.spring.springboot.springboot_rest.service.UserService;
@@ -22,7 +22,7 @@ public class JwtUserDetailService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userService.getUserByName(username);
+        UserEntity user = userService.getByEmail(username);
 
         if(user==null) {
             throw new UsernameNotFoundException("User not found "+username);

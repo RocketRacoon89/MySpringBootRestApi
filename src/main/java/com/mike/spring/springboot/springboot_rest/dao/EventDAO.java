@@ -1,16 +1,16 @@
 package com.mike.spring.springboot.springboot_rest.dao;
 
-import com.mike.spring.springboot.springboot_rest.entity.Event;
+import com.mike.spring.springboot.springboot_rest.entity.EventEntity;
 
 import java.util.List;
 
 public interface EventDAO {
 
-    public List<Event> getAllEvents();
+    public List<EventEntity> getAllEvents();
 
-    public Event getEvent(int id);
+    public EventEntity getEvent(int id);
 
-    public void saveEvent(Event event);
+    public void saveEvent(EventEntity event);
 
     public void deleteEvent(int id);
 }

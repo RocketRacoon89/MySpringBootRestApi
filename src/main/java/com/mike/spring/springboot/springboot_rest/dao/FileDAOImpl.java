@@ -1,6 +1,6 @@
 package com.mike.spring.springboot.springboot_rest.dao;
 
-import com.mike.spring.springboot.springboot_rest.entity.File;
+import com.mike.spring.springboot.springboot_rest.entity.FileEntity;
 import jakarta.persistence.EntityManager;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
@@ -18,19 +18,19 @@ public class FileDAOImpl implements FileDAO{
 
 
     @Override
-    public List<File> getAllFiles() {
+    public List<FileEntity> getAllFiles() {
 
         Session session = entityManager.unwrap(Session.class);
 
-        Query<File> query = session.createQuery("from File", File.class);
+        Query<FileEntity> query = session.createQuery("from File", FileEntity.class);
 
-        List<File> allFiles = query.getResultList();
+        List<FileEntity> allFiles = query.getResultList();
 
         return allFiles;
     }
 
     @Override
-    public void saveFile(File file) {
+    public void saveFile(FileEntity file) {
 
         Session session = entityManager.unwrap(Session.class);
 
@@ -38,11 +38,11 @@ public class FileDAOImpl implements FileDAO{
     }
 
     @Override
-    public File getFile(int id) {
+    public FileEntity getFile(int id) {
 
         Session session = entityManager.unwrap(Session.class);
 
-        File file = session.get(File.class, id);
+        FileEntity file = session.get(FileEntity.class, id);
 
         return file;
     }
@@ -52,7 +52,7 @@ public class FileDAOImpl implements FileDAO{
 
         Session session = entityManager.unwrap(Session.class);
 
-        File file = session.get(File.class, id);
+        FileEntity file = session.get(FileEntity.class, id);
 
         session.delete(file);
 

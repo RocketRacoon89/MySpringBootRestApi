@@ -1,16 +1,16 @@
 package com.mike.spring.springboot.springboot_rest.service;
 
-import com.mike.spring.springboot.springboot_rest.entity.Event;
+import com.mike.spring.springboot.springboot_rest.entity.EventEntity;
 
 import java.util.List;
 
 public interface EventService {
 
-    public List<Event> getAllEvents();
+    List<EventEntity> getAllEvents();
 
-    public void saveEvent(Event event);
+    EventEntity saveEvent(EventEntity event);
 
-    public Event getEvent(int id);
+    EventEntity getEvent(int id);
 
-    public void deleteEvent(int id);
+    void deleteEvent(int id);
 }

@@ -1,16 +1,16 @@
 package com.mike.spring.springboot.springboot_rest.service;
 
-import com.mike.spring.springboot.springboot_rest.entity.File;
+import com.mike.spring.springboot.springboot_rest.entity.FileEntity;
 
 import java.util.List;
 
 public interface FileService {
 
-    public List<File> getAllFiles();
+    List<FileEntity> getAllFiles();
 
-    public void saveFile(File file);
+    FileEntity saveFile(FileEntity file);
 
-    public File getFile(int id);
+    FileEntity getFile(int id);
 
-    public void deleteFile(int id);
+    void deleteFile(int id);
 }
