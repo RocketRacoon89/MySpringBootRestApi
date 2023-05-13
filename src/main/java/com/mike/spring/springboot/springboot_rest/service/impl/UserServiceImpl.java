@@ -3,8 +3,8 @@ package com.mike.spring.springboot.springboot_rest.service.impl;
 import com.mike.spring.springboot.springboot_rest.entity.RoleEntity;
 import com.mike.spring.springboot.springboot_rest.entity.Status;
 import com.mike.spring.springboot.springboot_rest.repository.RoleRepository;
-import com.mike.spring.springboot.springboot_rest.repository.UserRepository;
 import com.mike.spring.springboot.springboot_rest.entity.UserEntity;
+import com.mike.spring.springboot.springboot_rest.repository.UserRepository;
 import com.mike.spring.springboot.springboot_rest.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -21,7 +21,7 @@ public class UserServiceImpl implements UserService {
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Autowired
-    public UserServiceImpl(UserRepository userRepository, RoleRepository roleRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
+    public UserServiceImpl(com.mike.spring.springboot.springboot_rest.repository.UserRepository userRepository, RoleRepository roleRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;

@@ -15,7 +15,7 @@ public class RoleEntity {
     @Column(name = "name")
     private String name;
 
-    @jakarta.persistence.ManyToMany(mappedBy = "roles", fetch = jakarta.persistence.FetchType.LAZY)
+    @ManyToMany(mappedBy = "roles", fetch = javax.persistence.FetchType.LAZY)
     private List<UserEntity> users;
 
     public int getId() {

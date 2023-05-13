@@ -1,6 +1,5 @@
 package com.mike.spring.springboot.springboot_rest.security.jwt;
 
-import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.SecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.DefaultSecurityFilterChain;
@@ -17,7 +16,7 @@ public class JwtConfigurer extends SecurityConfigurerAdapter<DefaultSecurityFilt
     @Override
     public void configure(HttpSecurity httpSecurity) throws Exception {
         JwtTokenFilter jwtTokenFilter = new JwtTokenFilter(jwtTokenProvider);
-        httpSecurity.addFilterBefore();
+        httpSecurity.addFilterBefore(jwtTokenFilter, UsernamePasswordAuthenticationFilter.class);
     }
 
 

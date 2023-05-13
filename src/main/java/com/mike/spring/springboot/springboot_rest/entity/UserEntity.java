@@ -1,11 +1,11 @@
 package com.mike.spring.springboot.springboot_rest.entity;
 
 
-import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
