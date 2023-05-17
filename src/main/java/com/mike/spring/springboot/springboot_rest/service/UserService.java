@@ -12,7 +12,7 @@ public interface UserService {
 
     UserEntity findById(int id);
 
-    UserEntity getByEmail(String email);
+    UserEntity findByUsername(String email);
 
     void delete(int id);
 }

@@ -9,7 +9,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/V1/events")
+@RequestMapping("/api/v1/events")
 public class EventRestControllerV1 {
 
 //    @Autowired

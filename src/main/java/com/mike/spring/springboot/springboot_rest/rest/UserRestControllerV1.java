@@ -3,17 +3,22 @@ package com.mike.spring.springboot.springboot_rest.rest;
 import com.mike.spring.springboot.springboot_rest.entity.UserEntity;
 import com.mike.spring.springboot.springboot_rest.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/V1/users")
+@RequestMapping("/api/v1/users")
 public class UserRestControllerV1 {
 
-//    @Autowired
     private UserService userService;
+
+    @Autowired
+    public UserRestControllerV1(UserService userService) {
+        this.userService = userService;
+    }
 
     @GetMapping
     public List<UserEntity> getAllUsers() {

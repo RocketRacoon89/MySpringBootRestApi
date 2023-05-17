@@ -21,7 +21,7 @@ public class UserServiceImpl implements UserService {
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Autowired
-    public UserServiceImpl(com.mike.spring.springboot.springboot_rest.repository.UserRepository userRepository, RoleRepository roleRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
+    public UserServiceImpl(UserRepository userRepository, RoleRepository roleRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
@@ -59,8 +59,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public UserEntity getByEmail(String email) {
-        UserEntity result = userRepository.findByEmail(email);
+    public UserEntity findByUsername(java.lang.String name) {
+        UserEntity result = userRepository.findByName(name);
         return result;
     }
 

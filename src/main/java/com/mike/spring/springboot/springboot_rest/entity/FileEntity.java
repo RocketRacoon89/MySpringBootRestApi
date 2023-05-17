@@ -17,12 +17,12 @@ public class FileEntity {
     private int id;
 
     @Column(name="location")
-    private String location;
+    private Status location;
 
     @Column(name="status")
-    private String status;
+    private Status status;
 
-    public FileEntity(String location, String status) {
+    public FileEntity(Status location, Status status) {
         this.location = location;
         this.status = status;
     }

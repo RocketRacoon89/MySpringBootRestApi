@@ -5,7 +5,7 @@ import javax.persistence.*;
 import lombok.Data;
 
 @Entity
-@Table(name = "Events")
+@Table(name = "events")
 @Data
 public class EventEntity {
 
@@ -27,5 +27,5 @@ public class EventEntity {
     private FileEntity file;
 
     @Column(name = "status")
-    private String status;
+    private Status status;
 }

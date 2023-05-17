@@ -4,7 +4,6 @@ package com.mike.spring.springboot.springboot_rest.config;
 import com.mike.spring.springboot.springboot_rest.security.jwt.JwtConfigurer;
 import com.mike.spring.springboot.springboot_rest.security.jwt.JwtTokenProvider;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;

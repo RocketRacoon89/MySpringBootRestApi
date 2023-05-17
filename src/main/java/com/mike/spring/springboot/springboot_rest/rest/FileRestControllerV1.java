@@ -9,7 +9,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/V1/files")
+@RequestMapping("/api/v1/files")
 public class FileRestControllerV1 {
 
 //    @Autowired
