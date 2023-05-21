@@ -3,6 +3,7 @@ package com.mike.spring.springboot.springboot_rest.rest;
 import com.mike.spring.springboot.springboot_rest.entity.FileEntity;
 import com.mike.spring.springboot.springboot_rest.service.FileService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,6 +15,11 @@ public class FileRestControllerV1 {
 
 //    @Autowired
     private FileService fileService;
+
+    @Autowired
+    public FileRestControllerV1(FileService fileService) {
+        this.fileService = fileService;
+    }
 
     @GetMapping
     public List<FileEntity> getAllFiles() {

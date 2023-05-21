@@ -20,11 +20,11 @@ public class JwtUserDetailService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
-        System.out.println("userdetails");
-        System.out.println((userRepository==null)+"  "+userRepository.hashCode()+"  "+userRepository.toString());
+        System.out.println("userdetails");  //FOR TEST
+        System.out.println((userRepository==null)+"  "+userRepository.hashCode()+"  "+userRepository.toString());   //FOR TEST
         UserEntity user = userRepository.findByName(name);
-//        UserEntity user = userRepository.findByUsername(username);
-        System.out.println(user.toString());
+//        UserEntity user = userRepository.findByUsername(username); //FOR TEST
+//        System.out.println(user.toString());  //FOR TEST
 
         if(user==null) {
             throw new UsernameNotFoundException("User not found "+name+" MY EX");

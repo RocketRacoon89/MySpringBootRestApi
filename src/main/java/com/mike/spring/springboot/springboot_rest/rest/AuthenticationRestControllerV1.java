@@ -39,18 +39,18 @@ public class AuthenticationRestControllerV1 {
     @PostMapping(value = "login")
     public ResponseEntity login(@RequestBody AuthenticationRequestDto requestDto) {
         try {
-            System.out.println("ATTENTION TEST ResponseEntity");
+            System.out.println("ATTENTION TEST ResponseEntity");  //FOR TEST
             String username = requestDto.getUsername();
 
-            System.out.println("ATTENTION TEST username= "+username+ "requestDto.getPassword()  "+requestDto.getPassword());
+            System.out.println("ATTENTION TEST username= "+username+ "requestDto.getPassword()  "+requestDto.getPassword());  //FOR TEST
 
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, requestDto.getPassword()));
 
-            System.out.println("test test test "+authenticationManager.toString());
+            System.out.println("test test test "+authenticationManager.toString());  //FOR TEST
 
             UserEntity user = userService.findByUsername(username);
 
-            System.out.println("ATTENTION TEST user= "+user.toString());
+            System.out.println("ATTENTION TEST user= "+user.toString());  //FOR TEST
 
             if(user == null) {
                 throw new UsernameNotFoundException("User with username: "+ username + " not found!");
@@ -58,7 +58,7 @@ public class AuthenticationRestControllerV1 {
 
             String token = jwtTokenProvider.createToken(username, user.getRoles());
 
-            System.out.println("ATTENTION TEST token= "+token);
+            System.out.println("ATTENTION TEST token= "+token);  //FOR TEST
 
             Map<Object, Object> response = new HashMap<>();
             response.put("username", username);

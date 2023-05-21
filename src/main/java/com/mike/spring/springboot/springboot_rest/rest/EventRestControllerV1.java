@@ -3,6 +3,7 @@ package com.mike.spring.springboot.springboot_rest.rest;
 import com.mike.spring.springboot.springboot_rest.entity.EventEntity;
 import com.mike.spring.springboot.springboot_rest.service.EventService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,6 +15,11 @@ public class EventRestControllerV1 {
 
 //    @Autowired
     private EventService eventService;
+
+    @Autowired
+    public EventRestControllerV1(EventService eventService) {
+        this.eventService = eventService;
+    }
 
     @GetMapping
     public List<EventEntity> getAllEvents() {
