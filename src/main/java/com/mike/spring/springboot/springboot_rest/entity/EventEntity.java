@@ -4,6 +4,8 @@ package com.mike.spring.springboot.springboot_rest.entity;
 import javax.persistence.*;
 import lombok.Data;
 
+import java.util.List;
+
 @Entity
 @Table(name = "events")
 @Data
@@ -26,6 +28,8 @@ public class EventEntity {
     @JoinColumn(name = "file_id")
     private FileEntity file;
 
+
+    @Enumerated(EnumType.STRING)
     @Column(name = "status")
     private Status status;
 }

@@ -17,14 +17,11 @@ public class FileEntity {
     private int id;
 
     @Column(name="location")
-    private Status location;
+    private String location;
 
+    @Enumerated(EnumType.STRING)
     @Column(name="status")
     private Status status;
 
-    public FileEntity(Status location, Status status) {
-        this.location = location;
-        this.status = status;
-    }
 
 }
