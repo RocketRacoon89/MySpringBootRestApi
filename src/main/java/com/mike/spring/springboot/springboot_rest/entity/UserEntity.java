@@ -1,6 +1,8 @@
 package com.mike.spring.springboot.springboot_rest.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -22,7 +24,7 @@ public class UserEntity {
     @Column(name = "password")
     private java.lang.String password;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
     private List<EventEntity> events;
 
