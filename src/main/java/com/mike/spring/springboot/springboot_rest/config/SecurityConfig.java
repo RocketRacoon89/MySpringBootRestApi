@@ -1,6 +1,12 @@
 package com.mike.spring.springboot.springboot_rest.config;
 
 
+import com.amazonaws.auth.AWSCredentials;
+import com.amazonaws.auth.AWSStaticCredentialsProvider;
+import com.amazonaws.auth.BasicAWSCredentials;
+import com.amazonaws.regions.Regions;
+import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import com.mike.spring.springboot.springboot_rest.security.jwt.JwtConfigurer;
 import com.mike.spring.springboot.springboot_rest.security.jwt.JwtTokenProvider;
 import lombok.RequiredArgsConstructor;
@@ -40,5 +46,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .apply(new JwtConfigurer(jwtTokenProvider));
     }
+
 
 }
