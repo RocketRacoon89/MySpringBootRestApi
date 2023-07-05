@@ -50,7 +50,7 @@ public class FileRestControllerV1 {
         fileService.saveFile(file);
     }
 
-    public void uploadFile(@RequestBody FileEntity file) {
+    public void uploadFile(FileEntity file) {
         String location = file.getLocation();
         String bucket = location.substring(0, location.indexOf("/"));
         String fileName = location.substring(location.indexOf("/")+1);
